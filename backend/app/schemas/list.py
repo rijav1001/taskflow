@@ -4,6 +4,7 @@ from app.schemas.card import CardResponse
 
 class ListCreate(BaseModel):
     title: str
+    board_id: str
 
 class ListResponse(BaseModel):
     id: str
