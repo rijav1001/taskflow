@@ -16,4 +16,15 @@ client.interceptors.request.use((config) => {
     return config
 })
 
+client.interceptors.response.use(
+    res => res,
+    err => {
+        if (err.res?.status === 401) {
+            localStorage.removeItem('token')
+            window.location.reload()
+        }
+        return Promise.reject(err)
+    }
+)
+
 export default client
